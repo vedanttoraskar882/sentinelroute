@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 interface FooterProps {
   onPilotClick: () => void;
@@ -21,10 +21,7 @@ export const Footer: React.FC<FooterProps> = ({ onPilotClick, onOpenLegal }) => 
           
           {/* Left Brand Column (lg:col-span-5) */}
           <div className="lg:col-span-5 text-left">
-            <div className="flex items-center space-x-3 mb-3">
-              <div className="w-10 h-10 rounded-lg bg-slate-900 border border-amber-500/40 flex items-center justify-center">
-                <ShieldCheck className="w-5 h-5 text-amber-400" />
-              </div>
+            <div className="mb-3">
               <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-white">
                 Sentinel<span className="text-amber-400">Route</span>
               </span>

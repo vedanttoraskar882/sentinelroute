@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ShieldCheck, ChevronRight } from 'lucide-react';
+import { Menu, X, ChevronRight } from 'lucide-react';
 
 interface NavbarProps {
   onPilotClick: () => void;
@@ -49,23 +49,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onPilotClick }) => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo / Brand */}
+          {/* Logo / Brand (Text-Only) */}
           <a
             href="#home"
             onClick={(e) => handleNavClick(e, '#home')}
-            className="flex items-center space-x-3 group focus:outline-none focus:ring-2 focus:ring-amber-500/50 rounded-lg p-1"
+            className="flex flex-col text-left group focus:outline-none focus:ring-2 focus:ring-amber-500/50 rounded-lg p-1"
           >
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-slate-900 to-slate-800 border border-amber-500/30 flex items-center justify-center shadow-inner group-hover:border-amber-400/60 transition-colors">
-              <ShieldCheck className="w-5 h-5 text-amber-400 group-hover:text-amber-300 transition-colors" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-bold tracking-tight text-white flex items-center gap-1.5">
-                Sentinel<span className="text-amber-400">Route</span>
-              </span>
-              <span className="text-[10px] tracking-wider uppercase text-slate-400 font-medium">
-                Custody Integrity Infrastructure
-              </span>
-            </div>
+            <span className="text-2xl font-extrabold tracking-tight text-white flex items-center">
+              Sentinel<span className="text-amber-400">Route</span>
+            </span>
+            <span className="text-[10px] tracking-wider uppercase text-slate-400 font-semibold">
+              Custody Integrity Infrastructure
+            </span>
           </a>
 
           {/* Desktop Navigation */}
