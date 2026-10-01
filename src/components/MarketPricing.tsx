@@ -173,36 +173,16 @@ export const MarketPricing: React.FC<MarketPricingProps> = ({ onSelectTier }) =>
                     <div className="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-amber-400">
                       <Icon className="w-5 h-5" />
                     </div>
-                    {persona.isFuture && (
-                      <span className="text-[10px] font-bold font-mono px-2 py-0.5 rounded bg-amber-400/10 text-amber-400 border border-amber-500/30">
-                        PHASE 2
-                      </span>
-                    )}
                   </div>
 
                   <h3 className="text-base font-bold text-white mb-2.5">
                     {persona.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mb-4">
+                  <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
                     {persona.description}
                   </p>
                 </div>
-
-                {persona.examples && (
-                  <div className="pt-3 border-t border-slate-800">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 block mb-2 font-semibold">
-                      Key Client Examples:
-                    </span>
-                    <div className="flex flex-wrap gap-1.5">
-                      {persona.examples.map((ex, i) => (
-                        <span key={i} className="text-[11px] px-2 py-0.5 rounded bg-slate-950 text-slate-300 border border-slate-800">
-                          {ex}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
               </div>
             );
           })}
@@ -362,11 +342,6 @@ export const MarketPricing: React.FC<MarketPricingProps> = ({ onSelectTier }) =>
                   <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-300">
                     {tier.pricingLabel}
                   </span>
-                  {tier.badge && (
-                    <span className="text-[10px] font-bold font-mono px-2 py-0.5 rounded bg-amber-400/10 text-amber-400 border border-amber-500/30">
-                      {tier.badge}
-                    </span>
-                  )}
                 </div>
 
                 <h3 className="text-lg font-bold text-white mb-2">

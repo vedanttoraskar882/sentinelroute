@@ -1,12 +1,11 @@
 import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
 
 interface FooterProps {
-  onPilotClick: () => void;
+  onPilotClick?: () => void;
   onOpenLegal: (type: 'privacy' | 'terms') => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onPilotClick, onOpenLegal }) => {
+export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
   const scrollTo = (href: string) => {
     const el = document.querySelector(href);
     if (el) {
@@ -19,8 +18,8 @@ export const Footer: React.FC<FooterProps> = ({ onPilotClick, onOpenLegal }) => 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8">
           
-          {/* Left Brand Column (lg:col-span-5) */}
-          <div className="lg:col-span-5 text-left">
+          {/* Left Brand Column (lg:col-span-8) */}
+          <div className="lg:col-span-8 text-left">
             <div className="mb-3">
               <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-white">
                 Sentinel<span className="text-amber-400">Route</span>
@@ -31,7 +30,7 @@ export const Footer: React.FC<FooterProps> = ({ onPilotClick, onOpenLegal }) => 
               Custody Integrity Infrastructure for the UK Secure Logistics Sector.
             </p>
 
-            <p className="text-sm text-slate-300 leading-relaxed max-w-sm mb-5">
+            <p className="text-sm text-slate-300 leading-relaxed max-w-lg mb-5">
               Building cryptographically defensible proof-of-custody infrastructure for secure logistics.
             </p>
 
@@ -42,7 +41,7 @@ export const Footer: React.FC<FooterProps> = ({ onPilotClick, onOpenLegal }) => 
           </div>
 
           {/* Navigation Column (lg:col-span-4) */}
-          <div className="lg:col-span-4 text-left">
+          <div className="lg:col-span-4 text-left lg:text-right">
             <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-white mb-4">
               Navigation
             </h4>
@@ -58,53 +57,13 @@ export const Footer: React.FC<FooterProps> = ({ onPilotClick, onOpenLegal }) => 
                 <li key={item.label}>
                   <button
                     onClick={() => scrollTo(item.href)}
-                    className="hover:text-amber-400 transition-colors cursor-pointer text-left"
+                    className="hover:text-amber-400 transition-colors cursor-pointer"
                   >
                     {item.label}
                   </button>
                 </li>
               ))}
             </ul>
-          </div>
-
-          {/* Commercial Column (lg:col-span-3) */}
-          <div className="lg:col-span-3 text-left">
-            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-white mb-4">
-              Commercial
-            </h4>
-            <ul className="space-y-2.5 text-xs sm:text-sm">
-              <li>
-                <button
-                  onClick={onPilotClick}
-                  className="hover:text-amber-400 transition-colors flex items-center gap-1 cursor-pointer text-left"
-                >
-                  <span>Request a Pilot</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={onPilotClick}
-                  className="hover:text-amber-400 transition-colors flex items-center gap-1 cursor-pointer text-left"
-                >
-                  <span>Partner Enquiries</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={onPilotClick}
-                  className="hover:text-amber-400 transition-colors flex items-center gap-1 cursor-pointer text-left"
-                >
-                  <span>Insurer Interest</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
-                </button>
-              </li>
-            </ul>
-
-            <div className="mt-6 p-3 rounded-lg bg-slate-900 border border-slate-800 text-[11px] text-slate-400">
-              No third-party tracking • Direct browser-side evaluation
-            </div>
           </div>
 
         </div>
