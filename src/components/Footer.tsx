@@ -1,0 +1,139 @@
+import React from 'react';
+import { ShieldCheck, ArrowUpRight } from 'lucide-react';
+
+interface FooterProps {
+  onPilotClick: () => void;
+  onOpenLegal: (type: 'privacy' | 'terms') => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onPilotClick, onOpenLegal }) => {
+  const scrollTo = (href: string) => {
+    const el = document.querySelector(href);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <footer className="bg-slate-950 border-t border-slate-800/80 text-slate-300 text-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8">
+          
+          {/* Left Brand Column (lg:col-span-5) */}
+          <div className="lg:col-span-5 text-left">
+            <div className="flex items-center space-x-3 mb-3">
+              <div className="w-10 h-10 rounded-lg bg-slate-900 border border-amber-500/40 flex items-center justify-center">
+                <ShieldCheck className="w-5 h-5 text-amber-400" />
+              </div>
+              <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-white">
+                Sentinel<span className="text-amber-400">Route</span>
+              </span>
+            </div>
+
+            <p className="text-sm sm:text-base font-semibold text-slate-200 mb-2">
+              Custody Integrity Infrastructure for the UK Secure Logistics Sector.
+            </p>
+
+            <p className="text-sm text-slate-300 leading-relaxed max-w-sm mb-5">
+              Building cryptographically defensible proof-of-custody infrastructure for secure logistics.
+            </p>
+
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              Custody Integrity Engine • UK Security Principles
+            </div>
+          </div>
+
+          {/* Navigation Column (lg:col-span-4) */}
+          <div className="lg:col-span-4 text-left">
+            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-white mb-4">
+              Navigation
+            </h4>
+            <ul className="space-y-2.5 text-xs sm:text-sm">
+              {[
+                { label: 'Home', href: '#home' },
+                { label: 'About', href: '#about' },
+                { label: 'Platform', href: '#platform' },
+                { label: 'How It Works', href: '#how-it-works' },
+                { label: 'Market & Pricing', href: '#market-pricing' },
+                { label: 'FAQ', href: '#faq' },
+              ].map((item) => (
+                <li key={item.label}>
+                  <button
+                    onClick={() => scrollTo(item.href)}
+                    className="hover:text-amber-400 transition-colors cursor-pointer text-left"
+                  >
+                    {item.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Commercial Column (lg:col-span-3) */}
+          <div className="lg:col-span-3 text-left">
+            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-white mb-4">
+              Commercial
+            </h4>
+            <ul className="space-y-2.5 text-xs sm:text-sm">
+              <li>
+                <button
+                  onClick={onPilotClick}
+                  className="hover:text-amber-400 transition-colors flex items-center gap-1 cursor-pointer text-left"
+                >
+                  <span>Request a Pilot</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={onPilotClick}
+                  className="hover:text-amber-400 transition-colors flex items-center gap-1 cursor-pointer text-left"
+                >
+                  <span>Partner Enquiries</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={onPilotClick}
+                  className="hover:text-amber-400 transition-colors flex items-center gap-1 cursor-pointer text-left"
+                >
+                  <span>Insurer Interest</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
+                </button>
+              </li>
+            </ul>
+
+            <div className="mt-6 p-3 rounded-lg bg-slate-900 border border-slate-800 text-[11px] text-slate-400">
+              No third-party tracking • Direct browser-side evaluation
+            </div>
+          </div>
+
+        </div>
+
+        {/* Bottom Line */}
+        <div className="mt-14 pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <div>
+            © 2026 SentinelRoute. All rights reserved.
+          </div>
+          <div className="flex items-center space-x-6">
+            <button
+              onClick={() => onOpenLegal('privacy')}
+              className="hover:text-white transition-colors cursor-pointer"
+            >
+              Privacy
+            </button>
+            <button
+              onClick={() => onOpenLegal('terms')}
+              className="hover:text-white transition-colors cursor-pointer"
+            >
+              Terms
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+  );
+};
